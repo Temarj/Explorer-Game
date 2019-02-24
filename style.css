@@ -1,0 +1,44 @@
+body{
+	margin: 0;
+	height: 635px;
+	color: white;
+	overflow: hidden;
+}
+p{
+	font-size: 7vh;
+	text-align:center;
+	font-family: 'Share Tech Mono', monospace;
+	position: fixed;
+	top:40vh;
+	left: 40%;
+}
+
+#fondo{
+	background-repeat: no-repeat;
+	width: 450%;
+	height: 100%;
+	margin: 0;
+	animation-name: mover;
+	animation-duration:120s;
+}
+
+#fondo img{
+	height: 50%;
+}
+
+h1{
+	font-size: 20vh;
+	text-align:center;
+	font-family: 'Coiny', cursive;
+	position: fixed;
+	top:10vh;
+	left: 20%;
+}
+
+/* he mirado como hacer animaciones propias en css https://www.w3schools.com/css/css3_animations.asp*/
+
+@keyframes mover {
+  0%   {transform: translate(0px);}
+  50% {transform: translate(-2200px);}
+  100%   {transform: translate(0px);}
+
