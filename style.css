@@ -3,23 +3,26 @@ body{
 	height: 635px;
 	color: white;
 	overflow: hidden;
+	display: flex;
+	justify-content: center;
 }
 
 #fondo{
+	background-image:url('bg.png');
 	background-repeat: no-repeat;
-	width: 450%;
+	width: 100%;
 	height: 100%;
 	margin: 0;
-	animation-name: mover;
-	animation-duration:120s;
 	position:absolute;
+	background-size: cover;
 }
 
 #fondo img{
-	height: 50%;
+	height: 100%;
+	width: 100%;
 }
 
-p{
+h2{
 	width: 100%;
 	font-size: 7vh;
 	text-justify:center;
@@ -28,8 +31,17 @@ p{
 	position: fixed;
 	top:40vh;
 	opacity: 0;
-	-moz-animation: mymove 1s ease infinite;
-    -webkit-animation: mymove 1s ease infinite;
+  -webkit-animation: mymove 1s ease infinite;
+}
+
+#infoplanetas{
+	top:20vh;
+	font-size: 3vh;
+	width:70%;
+	text-justify:center;
+	text-align: center;
+	font-family: 'Share Tech Mono', monospace;
+	position: fixed;
 }
 
 h1{
@@ -45,7 +57,7 @@ h1{
 #alien{
 	position: fixed;
 	left:44.5%;
-	top:60vh;
+	top:70vh;
 	height: 10vh;
 }
 
@@ -60,8 +72,8 @@ h1{
 }
 
 #niveles img{
-	width: 20vh;
-	height: 20vh;
+	width: 10%;
+	height: 10%;
 }
 
 #nave{
@@ -74,15 +86,6 @@ h1{
 	position:absolute;
 	top: 40vh;
 	left: 10vh;
-}
-
-#space{
-	width: 160vh;
-	height: 100%;
-	padding:0;
-	margin-left: 20vh;
-	margin-right: 0;
-	background-color: green;
 }
 
 .meteorito{
@@ -115,20 +118,68 @@ button{
 	margin:5vh;
 	font-size: 7vh;
 	font-family: 'Share Tech Mono', monospace;
-	
 }
 
-/* he mirado como hacer animaciones propias en css https://www.w3schools.com/css/css3_animations.asp*/
-
-@keyframes mover {
-  0%   {transform: translate(0px);}
-  50% {transform: translate(-2200px);}
-  100%   {transform: translate(0px);}
+#win{
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.5;
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-/* y reutilizado la animación del reloj*/
+#planetaactual{
+	width: 30vh;
+}
+
+/*He reutilizado la animación del reloj*/
 @keyframes mymove {
     0% {
     opacity: 1.0;
 	}
 }
+
+@media all and (max-width: 960px){
+	h1{
+		width:100%;
+		top: 20vh;
+		font-size: 10vh;
+	}
+
+	h2{
+		font-size: 5vh;
+		top:35vh;
+	}
+
+	#niveles{
+		flex-direction: row;
+		margin-top:0;
+	}
+	#niveles{
+		width:10vh;
+		flex-direction: column;
+	}
+	#niveles img{
+		width: 10vh;
+		height: 10vh;
+	}
+
+	button{
+		font-size: 5vh;
+	}
+
+	#infoplanetas{
+		top:10vh;
+	}
+}
+
+@media all and (max-width: 480px){
+	h1{
+		font-size: 8vh;
+	}
+}
+
+/*Cuando inicias un nivel y luego estrechas la pantalla parece que el responsive no funciona porque algunos meteoritos quedan fuera, pero es porque el js utiliza el ancho y alto de window en el momento en que se inicia. Si la pantalla ya es estrecha cuando se inicia un nivel los meteoritos utilizan solo ese espacio y no quedan fuera*/
